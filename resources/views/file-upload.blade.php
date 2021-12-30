@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
     <meta charset="utf-8">
@@ -26,6 +26,7 @@
         <form action="{{route('fileUpload')}}" method="post" enctype="multipart/form-data">
           <h3 class="text-center mb-5">Upload File in Laravel</h3>
             @csrf
+            {{ csrf_field() }}
             @if ($message = Session::get('success'))
             <div class="alert alert-success">
                 <strong>{{ $message }}</strong>
